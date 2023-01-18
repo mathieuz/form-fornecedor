@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+::selection{
+    background-color: #00a0df;
+    color: white;
+}
+
+* {
+    font-family: Poppins, sans-serif;
+}
+
+input{
+    height: 35px;
+    padding: 4;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+
+    margin: 0;
+
+    background-color: white;
+}
+
+    body #logoParanoa{
+        user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-drag: none;
+
+        align-self: center;
+
+        width: 230px;
+        margin: 10px;
+    }
+
+    body h1, h2, h3, h4, h5, h6{
+        font-weight: normal;
+    }
+
+    body #tituloForm{
+        align-self: center;
+        font-weight: 600;
+        font-size: 30px;
+    }
+
+main, form{
+    display: flex;
+    flex-direction: column;
+}
+
+main, form{
+    align-self: center;
+
+    padding: 8px;
+
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.384);
+}
+
+    main div, form div{
+        display: flex;
+        margin-bottom: 10px;
+
+    }
+
+        main div:last-child, form div:last-child{
+            margin-bottom: auto;
+        }
+
+    #divControleItens{
+        flex-direction: row;
+        align-content: stretch;
+        justify-content: space-between;
+    }
+    
+        #divControleItens button{
+            margin-left: 5px;
+            width: 100%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+            #divControleItens button:first-child{
+                margin-left: auto;
+            }
+
+            #divControleItens button:last-child{
+                width: 40%;
+            }
+
+    #divItens{
+        display: flex;
+        flex-direction: column;
+
+        padding: 5px;
+        margin: 0;
+
+        background-color: rgba(0, 0, 255, 0.329);
+    }
+
+        #divItens .item{
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+        }
+
+            #divItens .item div{
+                display: flex;
+                flex-direction: column;
+
+                margin-left: 8px;
+            }
+
+                #divItens .item div:first-child{
+                    margin-left: auto;
+                }
+
+.numItem{
+    width: 32px;
+    text-align: end;
+}
+
+.qtde, .valorUnit, .valorTotal, .icms, .pisCofins{
+    width: 85px;
+    text-align: start;
+}
+
+.ipi{
+    width: 45px;
+    text-align: start;
+}

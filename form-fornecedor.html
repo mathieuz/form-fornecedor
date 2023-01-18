@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="https://github.com/mathieuz">
+    <link rel="stylesheet" href="css/form-fornecedor.css" type="text/css">
+    <link rel="stylesheet" href="css/itens-form.css" type="text/css">
+    <title>Form Fornecedor</title>
+</head>
+<body>
+    <img src="img/logop.png" id="logoParanoa">
+    <h2 id="tituloForm">Materiais para Cotação</h2>
+    <form>
+        <div id="divControleItens">
+            <button>Adicionar Item</button>
+            <button>Remover Tudo</button>
+        </div>
+
+        <div id="divItens">
+
+            <div class="item">
+                <div>
+                    <label>Item</label>
+                    <input type="number" class="numItem" readonly value="1">
+                </div>
+
+                <div>
+                    <label>Desc. Material</label>
+                    <input type="text" class="descMaterial">
+                </div>
+
+                <div>
+                    <label>Qtde</label>
+                    <input type="number" min="0" class="qtde">
+                </div>
+
+                <div>
+                    <label>Valor Unit.</label>
+                    <input type="number" step="0.01" min="0.0" class="valorUnit">
+                </div>
+
+                <div>
+                    <label>Valor Total</label>
+                    <input type="number" step="0.01" min="0.0" class="valorTotal">
+                </div>
+
+                <div>
+                    <label>ICMS</label>
+                    <input type="number" step="0" min="0" class="icms">
+                </div>
+
+                <div>
+                    <label>PIS/COIFNS</label>
+                    <input type="number" step="0" min="0" class="pisCofins">
+                </div>
+
+                <div>
+                    <label>IPI</label>
+                    <input type="number" step="0" min="0" class="ipi">
+                </div>
+
+                <div>
+                    <label>Outros</label>
+                    <input type="number" step="0" min="0" class="outros">
+                </div>
+
+                <div>
+                    <label>Cond. Pagto</label>
+                    <input type="number" step="0" min="0" class="outros">
+                </div>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>

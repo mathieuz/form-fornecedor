@@ -59,7 +59,8 @@ function adicionarItem(){
             labelQtde.innerHTML = "Qtde"
 
             let inputQtde = document.createElement("input")
-            inputQtde.setAttribute("type", "text")
+            inputQtde.setAttribute("type", "number")
+            inputQtde.setAttribute("min", "0")
             inputQtde.setAttribute("class", "inputQtde")
 
         //Criando campo e label referente ao valor unitário.
@@ -115,7 +116,9 @@ function adicionarItem(){
             labelCondPagto.innerHTML = "Cond. Pagto"
 
             let inputCondPagto = document.createElement("input")
-            inputCondPagto.setAttribute("type", "text")
+            inputCondPagto.setAttribute("type", "number")
+            inputCondPagto.setAttribute("min", "0")
+            inputCondPagto.setAttribute("max", "999")
             inputCondPagto.setAttribute("class", "inputCondPagto")
 
         //Criando campo e label referente ao prazo de entrega
@@ -144,8 +147,9 @@ function adicionarItem(){
 
         //Criando botão de remover item.
             let btnRemoverItem = document.createElement("span")
-            btnRemoverItem.setAttribute("id", "btnRemoverItem")
+            btnRemoverItem.setAttribute("id", `btnRemoverItem${numIndiceDivItem}`)
             btnRemoverItem.setAttribute("title", "Remover Item")
+            btnRemoverItem.setAttribute("class", "btnRemoverItem")
             btnRemoverItem.innerHTML = String.fromCharCode(215)
 
     //Append dos elementos da div referente ao número de item.
@@ -203,9 +207,21 @@ function adicionarItem(){
     //Append do botão de remover item.
     arrayDivItem[13].appendChild(btnRemoverItem)
 
+        //Função do botão de remover o item.
+        document.getElementById(`btnRemoverItem${numIndiceDivItem}`).addEventListener("click", function(){
+            indiceItem = numIndiceDivItem - 1
+            alert(indiceItem)
+
+            for (let i = numIndiceDivItem; i < arrayItem.length; i++){
+                arrayItem[i + 1].getElementsByClassName("inputItem")[numIndiceDivItem].value = indiceItem
+            }
+
+            secItens.removeChild(arrayItem[indiceItem])
+        })
+
     console.log(arrayItem[2])
 
-    //numIndiceDivItem incrementa um valor para as divs do próximo item. Isso evita que as  divs de cada item sejam incorporadas no item anterior.
+    //numIndiceDivItem incrementa um valor para as divs do próximo item. Isso evita que as divs de cada item sejam incorporadas no item anterior.
     numIndiceDivItem += 1
 }
 

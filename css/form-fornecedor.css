@@ -125,12 +125,13 @@ main{
 
         #secItens .item{
             align-items: end;
-            background-color: rgba(157, 0, 255, 0.178);
+            background-color: white;
         }
 
         #secItens .item:nth-child(odd){
             background-color: rgb(234, 234, 234);
         }
+
 
             #secItens .item:first-child{
                 margin-top: 10px;

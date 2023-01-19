@@ -21,6 +21,13 @@ input{
     transition: 0.1s;
 }
 
+textarea{
+    resize: none;
+    height: 60px;
+
+    font-size: 12px;
+}
+
     input:focus{
         outline: 1.5px solid rgb(0 173 238);
         border-color: transparent;

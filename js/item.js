@@ -7,6 +7,14 @@ document.getElementById("adicionarItem").addEventListener('click', adicionarItem
 /* Funções dos event-listeners. */
 
 function adicionarItem(){
+    //numIndice vai controlar as divs de cada item. Se não há nenhum item dentro da lista, o índice é de 0.
+    if (document.getElementsByClassName("item").length === 0){
+        var numIndice = 0
+
+    } else {
+        numIndice = document.getElementsByClassName("item").length
+    }
+
     //Criando elemento dinâmicamente toda vez que um item for adicionado.
     //<div class="item"></div>
     let item = document.createElement("div")
@@ -15,7 +23,7 @@ function adicionarItem(){
     //Criando todas as divs de cada campo a ser preenchido por item.
     for (let i = 0; i < 11; i++){
         let div = document.createElement("div")
-        div.setAttribute("class", "divItem")
+        div.setAttribute("class", `divItem${numIndice}`)
         item.append(div)
     }
 
@@ -26,7 +34,7 @@ function adicionarItem(){
     let arrayItem = document.getElementsByClassName("item")
 
     //Capturando o conjunto de divs criados.
-    let arrayDivItem = document.getElementsByClassName("divItem")
+    let arrayDivItem = document.getElementsByClassName(`divItem${numIndice}`)
 
         //Criando campo e label referente ao número do item.
             let labelItem = document.createElement("label")
@@ -79,4 +87,7 @@ function adicionarItem(){
     arrayDivItem[3].appendChild(inputValorUnit)
 
     console.log(arrayItem[2])
+
+    //numIndice incrementa um valor
+    numIndice += 1
 }

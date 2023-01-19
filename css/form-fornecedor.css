@@ -96,11 +96,11 @@ main{
         color: white;
         font-weight: 900;
 
-        background-color: rgb(0, 218, 0);
+        background-color: rgb(0, 145, 0);
     }
 
         #secControleForm #adicionarItem:hover{
-            background-color: rgb(0, 161, 0);
+            background-color: rgb(0, 100, 0);
         }
 
     #secControleForm #removerTudo{
@@ -129,7 +129,7 @@ main{
         }
 
         #secItens .item:nth-child(odd){
-            background-color: rgb(234, 234, 234);
+            background-color: rgb(223, 223, 223);
         }
 
 
@@ -163,7 +163,7 @@ main{
             margin: 0;
         }
 
-        #removerItem{
+        #btnRemoverItem{
             -webkit-user-select: none;
             user-select: none;
             -webkit-user-drag: none;
@@ -184,7 +184,7 @@ main{
             transition: 0.2s;
         }
 
-            #removerItem:hover{
+            #btnRemoverItem:hover{
                 background-color: rgb(161, 0, 0);
             }
 
@@ -195,7 +195,7 @@ main{
 }
 
 .inputDescMaterial{
-    width: 200px;
+    width: 160px;
 }
 
 /**/
@@ -205,9 +205,6 @@ main{
 /**/
 
 @media (max-width: 700px){
-    body{
-        background-color: aquamarine;
-    }
 
     #secItens .item{
         margin-bottom: 20px;

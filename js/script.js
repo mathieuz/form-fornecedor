@@ -3,6 +3,7 @@ let secItens = document.getElementById("secItens")
 
 /* Event-listener de cada botão. */
 document.getElementById("adicionarItem").addEventListener('click', adicionarItem)
+document.getElementById("removerTudo").addEventListener('click', removerTudo)
 
 /* Funções dos event-listeners. */
 function adicionarItem(){
@@ -204,6 +205,10 @@ function adicionarItem(){
 
     console.log(arrayItem[2])
 
-    //numIndiceDivItem incrementa um valor para o próximo item. Isso evita que as das divs de cada item sejam incorporadas no item anterior.
+    //numIndiceDivItem incrementa um valor para as divs do próximo item. Isso evita que as  divs de cada item sejam incorporadas no item anterior.
     numIndiceDivItem += 1
+}
+
+function removerTudo(){
+    secItens.innerHTML = null
 }

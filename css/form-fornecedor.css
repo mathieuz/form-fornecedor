@@ -139,9 +139,15 @@ main{
             margin: 5px;
         }
 
+            /*Tamanho Div Item*/
             #secItens .item div:nth-child(1){
                 text-align: center;
                 width: 50%;
+            }
+
+            #secItens .item div:last-child{
+                align-self: center;
+                width: auto;
             }
 
         #secItens .item div label{
@@ -149,12 +155,67 @@ main{
             margin: 0;
         }
 
+        #removerItem{
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
+
+            cursor: pointer;
+
+            align-self: center;
+            margin: 5px;
+            padding: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 5px;
+
+            background-color: rgb(218, 0, 0);
+            color: white;
+            text-align: center;
+
+            transition: 0.2s;
+        }
+
+            #removerItem:hover{
+                background-color: rgb(161, 0, 0);
+            }
+
+/**/
+
+.inputItem{
+    text-align: center;
+}
+
+.inputDescMaterial{
+    width: 200px;
+}
+
+/**/
+
 /**/
 /**/
 /**/
 
-@media (max-width: 500px){
+@media (max-width: 700px){
     body{
         background-color: aquamarine;
+    }
+
+    #secItens .item{
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+
+    #secItens .item div:nth-child(1){
+        text-align: start;
+        width: 100%;
+    }
+
+    input, .inputDescMaterial{
+        width: auto;
+    }
+
+    .inputItem{
+        text-align: start;
     }
 }

@@ -88,6 +88,6 @@ function adicionarItem(){
 
     console.log(arrayItem[2])
 
-    //numIndice incrementa um valor
+    //numIndice incrementa um valor para o próximo item. Isso evita que as das divs de cada item sejam incorporadas no item anterior.
     numIndice += 1
 }

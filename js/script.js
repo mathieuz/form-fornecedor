@@ -222,14 +222,19 @@ function adicionarItem(){
     arrayDivItem[13].appendChild(btnRemoverItem)
 
         //Função do botão de remover o item.
-        document.getElementById(`btnRemoverItem${numIndiceDivItem}`).addEventListener("click", function(){
+        document.getElementById(`btnRemoverItem` + numIndiceDivItem).addEventListener("click", function(){
+            //Vai receber o número de indice atual do item criado.
             indiceItem = numIndiceDivItem - 1
             alert(indiceItem)
 
+            //Remove o item.
             secItens.removeChild(arrayItem[indiceItem])
-        })
 
-    console.log(arrayItem[2])
+            //Atualiza os números de item de cada item.
+            for (let i = 0; i <= arrayItem.length; i++){
+                document.getElementsByClassName("inputItem")[i].value = i + 1
+            }
+        })
 
     //numIndiceDivItem incrementa um valor para as divs do próximo item. Isso evita que as divs de cada item sejam incorporadas no item anterior.
     numIndiceDivItem += 1

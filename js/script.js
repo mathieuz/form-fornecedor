@@ -226,10 +226,6 @@ function adicionarItem(){
             indiceItem = numIndiceDivItem - 1
             alert(indiceItem)
 
-            for (let i = numIndiceDivItem; i < arrayItem.length; i++){
-                arrayItem[i + 1].getElementsByClassName("inputItem")[numIndiceDivItem].value = indiceItem
-            }
-
             secItens.removeChild(arrayItem[indiceItem])
         })
 

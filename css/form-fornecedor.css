@@ -184,7 +184,7 @@ main{
             transition: 0.2s;
         }
 
-            #btnRemoverItem:hover{
+            .btnRemoverItem:hover{
                 background-color: rgb(161, 0, 0);
             }
 

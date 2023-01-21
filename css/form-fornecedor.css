@@ -198,6 +198,12 @@ main{
     width: 160px;
 }
 
+.inputFreteIncluso{
+    margin-bottom: 4px;
+
+    border-radius: 3px;
+}
+
 /**/
 
 /**/
@@ -222,5 +228,9 @@ main{
 
     .inputItem{
         text-align: start;
+    }
+
+    .inputFreteIncluso{
+        margin-bottom: auto;
     }
 }

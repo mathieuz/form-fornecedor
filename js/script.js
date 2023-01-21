@@ -21,6 +21,7 @@ function adicionarItem(){
     item.setAttribute("class", "item")
 
     //Criando todas as divs de cada campo a ser preenchido por um item.
+    //Cada divItem criado vai receber um valor de índice a ser incrementado a cada item novo na lista.
     for (let i = 0; i < 14; i++){
         let div = document.createElement("div")
         div.setAttribute("class", `divItem${numIndiceDivItem}`)
@@ -133,9 +134,22 @@ function adicionarItem(){
             let labelFreteIncluso = document.createElement("label")
             labelFreteIncluso.innerHTML = "Frete Incluso"
 
-            let inputFreteIncluso = document.createElement("input")
-            inputFreteIncluso.setAttribute("type", "text")
+            let inputFreteIncluso = document.createElement("select")
             inputFreteIncluso.setAttribute("class", "inputFreteIncluso")
+            
+            //Criando opções do frete incluso + append das opções dentro do campo.
+                let opNaoInformado = document.createElement("option")
+                opNaoInformado.innerHTML = "-"
+
+                let opSim = document.createElement("option")
+                opSim.innerHTML = "Sim"
+
+                let opNao = document.createElement("option")
+                opNao.innerHTML = "Não"
+
+                inputFreteIncluso.appendChild(opNaoInformado)
+                inputFreteIncluso.appendChild(opSim)
+                inputFreteIncluso.appendChild(opNao)
 
         //Criando campo e label referente ao campo "Observacao".
             let labelObservacao = document.createElement("label")

@@ -32,10 +32,10 @@ function adicionarItem(){
     secItens.append(item)
 
     //Capturando o conjunto de itens criados.
-    let arrayItem = document.getElementsByClassName("item")
+    var arrayItem = document.getElementsByClassName("item")
 
     //Capturando o conjunto de divs criados.
-    let arrayDivItem = document.getElementsByClassName(`divItem${numIndiceDivItem}`)
+    var arrayDivItem = document.getElementsByClassName(`divItem${numIndiceDivItem}`)
 
         //Criando campo e label referente ao número do item.
             let labelItem = document.createElement("label")
@@ -223,10 +223,17 @@ function adicionarItem(){
 
         //Função do botão de remover o item.
         document.getElementsByClassName(`btnRemoverItem`)[numIndiceDivItem].addEventListener("click", function remover(){
-            removerItem(numIndiceDivItem)
+            //Remove o item em questão
+            secItens.removeChild(document.getElementsByClassName("item")[numIndiceDivItem])
+
+            for (let i = 0; i <= document.getElementsByClassName("item").length; i++){
+                document.getElementsByClassName("inputItem")[i].value = i + 1
+            }
+
+            atualizaLista()
         })
 
-    //numIndiceDivItem incrementa um valor para as divs do próximo item. Isso evita que as divs de cada item sejam incorporadas no item anterior.
+    console.log(arrayItem.length)
     numIndiceDivItem += 1
 }
 
@@ -234,19 +241,19 @@ function removerTudo(){
     secItens.innerHTML = null
 }
 
-function removerItem(numIndiceItem){
-    //Recebe o valor de índice do item criado. O valor vai ser atualizado na lista toda uma vez que o item especificado é removido da lista.
-    indice = numIndiceItem - 1
+function atualizaLista(){
 
-    alert(indice)
-
-    //Remove o item em questão
-    secItens.removeChild(document.getElementsByClassName("item")[indice])
-
-    //O laço vai atualizar o valor do input de item de cada item.
-    //Também vai atualizar os valores de índice de cada botão de remover item da
-    //nova lista atualizada, com base na sua nova posição de índice.
-    for (let i = 0; i < document.getElementsByClassName("item").length; i++){
-        document.getElementsByClassName("inputItem")[i].value = i + 1
+    if (document.body.getElementsByClassName("item").length == 1){
+        document.getElementsByClassName("btnRemoverItem")[0].addEventListener("click", function remover(){
+            secItens.innerHTML = null
+        })
     }
+
+    for (let i = 0; i < document.getElementsByClassName("item").length; i++){
+        document.getElementsByClassName("btnRemoverItem")[i].addEventListener("click", function remover(){
+            secItens.remove(document.getElementsByClassName("item")[document.getElementsByClassName("item").length])
+        })
+    }
+
+    numIndiceDivItem = 0
 }

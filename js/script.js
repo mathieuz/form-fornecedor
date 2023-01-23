@@ -7,6 +7,9 @@ document.getElementById("removerTudo").addEventListener('click', removerTudo)
 
 /* Funções dos event-listeners. */
 function adicionarItem(){
+    //Vai habilitar o botão de envio do formulário
+    document.getElementById("btnFinalizar").style.display = "block"
+
     //numIndiceDivItem vai controlar as divs de cada item. Se não há nenhum item dentro da lista, o índice é de 0.
     if (document.getElementsByClassName("item").length === 0){
         var numIndiceDivItem = 0
@@ -22,7 +25,7 @@ function adicionarItem(){
 
     //Criando todas as divs de cada campo a ser preenchido por um item.
     //Cada divItem criado vai receber um valor de índice a ser incrementado a cada item novo na lista.
-    for (let i = 0; i < 14; i++){
+    for (let i = 0; i < 13; i++){
         let div = document.createElement("div")
         div.setAttribute("class", `divItem${numIndiceDivItem}`)
         item.append(div)
@@ -55,7 +58,7 @@ function adicionarItem(){
             inputDescMaterial.setAttribute("type", "text")
             inputDescMaterial.setAttribute("class", "inputDescMaterial")
 
-        //Criando campo e label referente a quantidade.
+        //Criando campo e label referente a quantidade + controle do valor de input inserido.
             let labelQtde = document.createElement("label")
             labelQtde.innerHTML = "Qtde"
 
@@ -63,6 +66,12 @@ function adicionarItem(){
             inputQtde.setAttribute("type", "number")
             inputQtde.setAttribute("min", "0")
             inputQtde.setAttribute("class", "inputQtde")
+
+            inputQtde.addEventListener("input", () => {
+                if (inputQtde.value < 0 || isNaN(inputQtde.value) === true || inputQtde.value.startsWith(0)){
+                    inputQtde.value = 0
+                }
+            })
 
         //Criando campo e label referente ao valor unitário.
             let labelValorUnit = document.createElement("label")
@@ -112,7 +121,7 @@ function adicionarItem(){
             inputOutros.setAttribute("type", "text")
             inputOutros.setAttribute("class", "inputOutros")
 
-        //Criando campo e label referente ao cond. pagto.
+        //Criando campo e label referente ao cond. pagto. + controle do valor de input inserido.
             let labelCondPagto = document.createElement("label")
             labelCondPagto.innerHTML = "Cond. Pagto"
 
@@ -121,6 +130,12 @@ function adicionarItem(){
             inputCondPagto.setAttribute("min", "0")
             inputCondPagto.setAttribute("max", "999")
             inputCondPagto.setAttribute("class", "inputCondPagto")
+
+            inputCondPagto.addEventListener("input", () => {
+                if (inputCondPagto.value < 0 || isNaN(inputCondPagto.value) === true || inputCondPagto.value.startsWith(0) || inputCondPagto.value.length > 3){
+                    inputCondPagto.value = 0
+                }
+            })
 
         //Criando campo e label referente ao prazo de entrega
             let labelPrazoEntrega = document.createElement("label")
@@ -158,13 +173,6 @@ function adicionarItem(){
             let inputObservacao = document.createElement("input")
             inputObservacao.setAttribute("type", "text")
             inputObservacao.setAttribute("class", "inputObservacao")
-
-        //Criando botão de remover item.
-            let btnRemoverItem = document.createElement("span")
-            btnRemoverItem.setAttribute("id", `btnRemoverItem${numIndiceDivItem}`)
-            btnRemoverItem.setAttribute("title", "Remover Item")
-            btnRemoverItem.setAttribute("class", "btnRemoverItem")
-            btnRemoverItem.innerHTML = String.fromCharCode(215)
 
     //Append dos elementos da div referente ao número de item.
     arrayDivItem[0].appendChild(labelItem)
@@ -218,42 +226,13 @@ function adicionarItem(){
     arrayDivItem[12].appendChild(labelObservacao)
     arrayDivItem[12].appendChild(inputObservacao)
 
-    //Append do botão de remover item.
-    arrayDivItem[13].appendChild(btnRemoverItem)
-
-        //Função do botão de remover o item.
-        document.getElementsByClassName(`btnRemoverItem`)[numIndiceDivItem].addEventListener("click", function remover(){
-            //Remove o item em questão
-            secItens.removeChild(document.getElementsByClassName("item")[numIndiceDivItem])
-
-            for (let i = 0; i <= document.getElementsByClassName("item").length; i++){
-                document.getElementsByClassName("inputItem")[i].value = i + 1
-            }
-
-            atualizaLista()
-        })
-
-    console.log(arrayItem.length)
     numIndiceDivItem += 1
+
+    
 }
 
+//Desabilita a função de envio do formulário e apaga todos os itens da lista.
 function removerTudo(){
+    document.getElementById("btnFinalizar").style.display = 'none'
     secItens.innerHTML = null
-}
-
-function atualizaLista(){
-
-    if (document.body.getElementsByClassName("item").length == 1){
-        document.getElementsByClassName("btnRemoverItem")[0].addEventListener("click", function remover(){
-            secItens.innerHTML = null
-        })
-    }
-
-    for (let i = 0; i < document.getElementsByClassName("item").length; i++){
-        document.getElementsByClassName("btnRemoverItem")[i].addEventListener("click", function remover(){
-            secItens.remove(document.getElementsByClassName("item")[document.getElementsByClassName("item").length])
-        })
-    }
-
-    numIndiceDivItem = 0
 }

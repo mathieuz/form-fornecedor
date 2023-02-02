@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+::selection{
+    background-color: rgb(0 173 238);
+    color: white;
+}
+
+*{
+    font-family: Poppins, sans-serif;
+}
+
+input{
+    width: 85%;
+    margin: 0;
+    margin-bottom: 3px;
+
+    outline-color: transparent;
+    border: 1.3px solid gray;
+    border-radius: 3px;
+
+    transition: 0.1s;
+}
+
+textarea{
+    resize: none;
+    height: 60px;
+
+    font-size: 12px;
+}
+
+    input:focus{
+        outline: 1.5px solid rgb(0 173 238);
+        border-color: transparent;
+    }
+
+body{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 10px;
+}
+
+    body #imgLogo{
+        -webkit-user-drag: none;
+        user-select: none;
+        -webkit-user-select: none;
+
+        align-self: center;
+
+        width: 180px;
+    }
+
+    body #tituloForm{
+        align-self: center;
+
+        text-align: center;
+    }
+
+main{
+    align-self: center;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    border-radius: 5px;
+
+    background-color: white;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.267);
+}
+
+    main div, section{
+        display: flex;
+        width: 100%;
+    }
+
+    #secControleForm{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #secControleForm button{
+        margin: 5px;
+        width: 100%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 5px;
+
+        transition: 0.3s;
+    }
+
+    #secControleForm #adicionarItem{
+        cursor: pointer;
+        border: none;
+
+        color: white;
+        font-weight: 900;
+
+        background-color: rgb(0, 145, 0);
+    }
+
+        #secControleForm #adicionarItem:hover{
+            background-color: rgb(0, 100, 0);
+        }
+
+    #secControleForm #removerTudo{
+        width: 40%;
+
+        cursor: pointer;
+        border: none;
+
+        color: white;
+        font-weight: 900;
+
+        background-color: rgb(218, 0, 0);
+    }
+
+        #secControleForm #removerTudo:hover{
+            background-color: rgb(161, 0, 0);
+        }
+
+    #secItens{
+        flex-direction: column;
+    }
+
+        #secItens .item{
+            align-items: end;
+            background-color: white;
+        }
+
+        #secItens .item:nth-child(odd){
+            background-color: rgb(223, 223, 223);
+        }
+
+
+            #secItens .item:first-child{
+                margin-top: 10px;
+            }
+
+            #secItens .item:last-child{
+                margin-bottom: 10px;
+            }
+
+        #secItens .item div{
+            width: 100%;
+            flex-direction: column;
+            margin: 5px;
+        }
+
+            /*Tamanho Div Item*/
+            #secItens .item div:nth-child(1){
+                text-align: center;
+                width: 50%;
+            }
+
+            #secItens .item div:last-child{
+                align-self: center;
+                width: auto;
+            }
+
+        #secItens .item div label{
+            font-size: 12px;
+            margin: 0;
+        }
+
+        .btnRemoverItem{
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
+
+            cursor: pointer;
+
+            align-self: center;
+            margin: 5px;
+            padding: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 5px;
+
+            background-color: rgb(218, 0, 0);
+            color: white;
+            text-align: center;
+
+            transition: 0.2s;
+        }
+
+            .btnRemoverItem:hover{
+                background-color: rgb(161, 0, 0);
+            }
+
+/**/
+
+.inputItem{
+    text-align: center;
+}
+
+.inputDescMaterial{
+    width: 160px;
+}
+
+.inputFreteIncluso{
+    margin-bottom: 4px;
+
+    border-radius: 3px;
+}
+
+/**/
+
+/**/
+/**/
+/**/
+
+@media (max-width: 910px){
+
+    #secItens .item{
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+
+    #secItens .item div:nth-child(1){
+        text-align: start;
+        width: 100%;
+    }
+
+    input, .inputDescMaterial{
+        width: auto;
+    }
+
+    .inputItem{
+        text-align: start;
+    }
+
+    .inputFreteIncluso{
+        margin-bottom: auto;
+    }
+}
